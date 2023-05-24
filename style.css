@@ -1,0 +1,498 @@
+:root {
+  --blue: #345ff6;
+  --gunmetal: #253347;
+  --darkElectricBlue: #5e6e85;
+  --borders: #d8e2e7;
+  --pureWhite: #ffffff;
+
+  /****** Heading  *********/
+  --headingfontWeight: 600;
+  --headinglineHeight: 110%;
+  /* Heading XL*/
+  --headingXLfontSize: 6.4rem;
+
+  /* Heading L*/
+  --headingLfontSize: 4.8rem;
+
+  /*  Heading M*/
+  --headingMfontSize: 2.8rem;
+
+  /*  Heading S*/
+  --headingSfontSize: 2rem;
+
+  /****** Body  *********/
+  --bodyFontWeight: 400;
+  --bodyBoldFontWeight: 600;
+  --bodyLineHeight: 150%;
+  /* Body M*/
+  --bodyMfontSize: 1.6rem;
+
+  /* Body S */
+  --bodySfontSize: 1.4rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--pureWhite);
+
+  font-size: 1.8rem;
+}
+
+.container {
+  padding: 3.4rem 2.3rem 9.6rem;
+}
+
+.bgTopBlue {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 64rem;
+  width: 100%;
+  background: linear-gradient(135deg, var(--pureWhite), var(--borders));
+  border-radius: 0 0 35px 35px;
+
+  z-index: -1;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2.6rem;
+}
+
+.heroText {
+  text-align: center;
+}
+
+.heroText > h1 {
+  margin-bottom: 2.4rem;
+
+  font-weight: 600;
+  font-size: 4.8rem;
+  line-height: 110%;
+}
+
+.heroText > p {
+  margin-bottom: 4.8rem;
+
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 150%;
+}
+
+/******** Calculator  ********/
+
+.calculator {
+  margin-bottom: 7.2rem;
+  padding: 2.4rem;
+  border-radius: 16px;
+
+  background-color: white;
+  box-shadow: 16px 32px 56px rgba(143, 174, 207, 0.25);
+}
+
+.calculator > h1 {
+  margin-bottom: 2.4rem;
+
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 110%;
+}
+
+/********* Radio Btns ***********/
+.radioBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 110%;
+}
+
+.radioBtnContainer {
+  position: relative;
+  margin-bottom: 2.4rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+
+  cursor: pointer;
+}
+
+.metric,
+.imperial {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.bigCircle {
+  width: 3.1rem;
+  height: 3.1rem;
+  border-radius: 50px;
+  border: 1px solid var(--borders);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.innerCircle {
+  display: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50px;
+  background-color: blue;
+}
+
+.metric:checked ~ .bigCircle,
+.imperial:checked ~ .bigCircle {
+  background-color: var(--borders);
+  border: 1px solid var(--borders);
+}
+
+.metric:checked ~ .bigCircle > .innerCircle,
+.imperial:checked ~ .bigCircle > .innerCircle {
+  display: block;
+}
+
+.radioBtnContainer:hover .bigCircle {
+  border: 1px solid blue;
+}
+
+.radioBtnContainer:hover .metric:checked ~ .bigCircle,
+.radioBtnContainer:hover .imperial:checked ~ .bigCircle {
+  border: 1px solid var(--borders);
+}
+
+/*********** calculator Data **********/
+
+.metricData {
+  display: grid;
+}
+
+.metricFlex > h2,
+.imperialLeft > h2,
+.imperialRight > h2 {
+  margin-bottom: 0.8rem;
+
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 150%;
+}
+
+.imperialRight > h2 {
+  visibility: hidden;
+}
+
+.styleBox {
+  position: relative;
+}
+
+.styleInput {
+  width: 100%;
+  padding-top: 2rem;
+  padding-left: 2.4rem;
+  padding-bottom: 2rem;
+
+  color: var(--gunmetal);
+  border: 1px solid var(--borders);
+  border-radius: 12px;
+
+  position: relative;
+
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 110%;
+}
+
+.styleInput::placeholder {
+  color: var(--borders);
+}
+
+.styleInput:focus {
+  border: 1px solid var(--blue);
+  outline: none;
+}
+
+.heightBox {
+  margin-bottom: 1.6rem;
+}
+.weightBox {
+  margin-bottom: 2.4rem;
+}
+
+.heightBox::after {
+  content: "cm";
+
+  position: absolute;
+  top: 50%;
+  right: 2.4rem;
+  transform: translateY(-50%);
+
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.weightBox::after {
+  content: "kg";
+
+  position: absolute;
+  top: 50%;
+  right: 2.4rem;
+  transform: translateY(-50%);
+
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.ft::after {
+  content: "ft";
+}
+.st::after {
+  content: "st";
+}
+.in::after {
+  content: "in";
+}
+.lbs::after {
+  content: "lbs";
+}
+
+/******* calculator Data Imperial  ********/
+.imperialData {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+/******* calculator TEXT  ********/
+.calculatorText {
+  padding: 3.2rem;
+  border-radius: 16px;
+
+  background-color: var(--blue);
+  color: var(--pureWhite);
+  font-weight: var(--bodyFontWeight);
+
+  line-height: var(--bodyLineHeight);
+}
+
+.calculatorText > h2 {
+  font-size: var(--bodyMfontSize);
+}
+
+.calculatorText > p {
+  font-size: var(--bodySfontSize);
+}
+
+.imgSection {
+}
+
+.manEatingImg {
+  margin-bottom: 4.8rem;
+  width: 100%;
+}
+
+.imgSectionText > h1 {
+  margin-bottom: 3.2rem;
+  font-weight: 600;
+  font-size: 3.2rem;
+  line-height: 110%;
+  letter-spacing: -1px;
+}
+
+.imgSectionText > p {
+  margin-bottom: 7.2rem;
+  font-weight: var(--bodyFontWeight);
+  font-size: var(--bodyMfontSize);
+  line-height: var(--bodyLineHeight);
+}
+
+.threeIcons {
+  padding: 5.6rem 0 1.6rem 0;
+}
+
+.threeIcons > div {
+  margin-bottom: 4rem;
+}
+.threeIcons > div > img {
+  margin-bottom: 3.2rem;
+}
+
+.threeIcons > div > h1 {
+  margin-bottom: 2.4rem;
+}
+
+/******** footer  *********/
+footer {
+  padding: 7.2rem 0 9.6rem;
+}
+
+.footerText {
+  margin-bottom: 5.6rem;
+  text-align: center;
+}
+
+.footerText > h1 {
+  margin-bottom: 3.2rem;
+  font-weight: 600;
+  font-size: 3.2rem;
+  line-height: 110%;
+  letter-spacing: -1px;
+}
+
+.footerText > p {
+  font-weight: var(--bodyFontWeight);
+  font-size: var(--bodyMfontSize);
+  line-height: var(--bodyLineHeight);
+}
+
+.bottomCardSection {
+}
+
+.card {
+  margin-bottom: 1.6rem;
+  padding: 2.4rem;
+  border-radius: 16px;
+  background-color: var(--pureWhite);
+
+  box-shadow: 16px 32px 56px rgba(143, 174, 207, 0.25);
+}
+
+.cardLogoFlex {
+  margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 2.1rem;
+}
+
+.cardLogoFlex > h1 {
+  font-weight: var(--headingfontWeight);
+  font-size: var(--headingSfontSize);
+  line-height: var(--headinglineHeight);
+}
+
+@media (min-width: 750px) {
+  .metricData {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+
+  .calculatorText {
+    border-radius: 16px 999px 999px 16px;
+  }
+
+  .imgSection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  .bottomCardSection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.6rem;
+  }
+
+  .card1 {
+    grid-column: 1 / span 2;
+  }
+  .card2 {
+    grid-column: 3 / span 2;
+  }
+  .card3 {
+    grid-column: 1 / span 2;
+  }
+  .card4 {
+    grid-column: 3 / span 2;
+  }
+  .card5 {
+    grid-column: 2 / span 2;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    padding: 3.4rem 14rem 9.6rem;
+  }
+
+  .logo {
+    display: inline;
+  }
+
+  .topSectionFlex {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+    gap: 3.2rem;
+  }
+
+  .heroText {
+    text-align: left;
+  }
+
+  .threeIcons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+  }
+
+  footer {
+    padding: 0;
+    position: relative;
+  }
+
+  .footerText {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    text-align: left;
+    width: 45%;
+  }
+
+  .bottomCardSection {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-row: repeat(3, 1fr);
+    gap: 1.6rem;
+  }
+
+  .card1 {
+    grid-column: 12 / span 7;
+    grid-row: 1 / span 1;
+  }
+  .card2 {
+    grid-column: 7 / span 7;
+    grid-row: 2 / span 1;
+  }
+  .card3 {
+    grid-column: span 7 / -1;
+    grid-row: 2 / span 1;
+  }
+  .card4 {
+    grid-column: 3 / span 7;
+    grid-row: 3 / span 1;
+  }
+  .card5 {
+    grid-column: 10 / span 7;
+    grid-row: 3 / span 1;
+  }
+}
